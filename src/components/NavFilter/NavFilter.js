@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withRestaurants } from '../RestaurantProvider/RestaurantProvider';
+import { withRestaurants, restaurantProviderProps } from '../RestaurantProvider/RestaurantProvider';
 import SelectableList from '../shared/SelectableList/SelectableList';
 import RatingSlider from '../RatingSlider/RatingSlider';
 import CostSlider from '../CostSlider/CostSlider';
@@ -31,12 +30,7 @@ const NavFilter = ({ categoriesList, cuisinesList, toggleCategory, toggleCuisine
 );
 
 NavFilter.propTypes = {
-  categoriesList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  activeCategories: PropTypes.arrayOf(PropTypes.number).isRequired,
-  cuisinesList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  activeCuisines: PropTypes.arrayOf(PropTypes.number).isRequired,
-  toggleCategory: PropTypes.func.isRequired,
-  toggleCuisine: PropTypes.func.isRequired,
+  ...restaurantProviderProps,
 };
 
 export default withRestaurants(NavFilter);

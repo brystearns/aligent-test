@@ -9,6 +9,22 @@ import {
 
 const RestaurantContext = React.createContext();
 
+export const restaurantProviderProps = {
+  restaurantList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  toggleActiveRestaurant: PropTypes.func.isRequired,
+  activeRestaurant: PropTypes.shape({}).isRequired,
+  activeCost: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  toggleCostChange: PropTypes.func.isRequired,
+  categoriesList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  activeCategories: PropTypes.arrayOf(PropTypes.number).isRequired,
+  cuisinesList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  activeCuisines: PropTypes.arrayOf(PropTypes.number).isRequired,
+  toggleCategory: PropTypes.func.isRequired,
+  toggleCuisine: PropTypes.func.isRequired,
+  activeRating: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  toggleRatingChange: PropTypes.func.isRequired,
+};
+
 export const withRestaurants = WrappedComponent => props => (
   <RestaurantContext.Consumer>
     {restaurantContext => (

@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withRestaurants } from '../RestaurantProvider/RestaurantProvider';
+import { withRestaurants, restaurantProviderProps } from '../RestaurantProvider/RestaurantProvider';
 import RangeSlider from '../shared/RangeSlider/RangeSlider';
 import { COST_LOWER_LIMIT, COST_UPPER_LIMIT } from '../../constants/restaurantFilters.constants';
 
@@ -20,8 +19,7 @@ const CostSlider = ({ activeCost, toggleCostChange }) => (
 );
 
 CostSlider.propTypes = {
-  activeCost: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  toggleCostChange: PropTypes.func.isRequired,
+  ...restaurantProviderProps,
 };
 
 export default withRestaurants(CostSlider);

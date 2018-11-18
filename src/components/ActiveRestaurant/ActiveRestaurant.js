@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { withRestaurants } from '../RestaurantProvider/RestaurantProvider';
+import { withRestaurants, restaurantProviderProps } from '../RestaurantProvider/RestaurantProvider';
 
 const ActiveRestaurant = ({ activeRestaurant }) => {
   const {
@@ -15,7 +14,9 @@ const ActiveRestaurant = ({ activeRestaurant }) => {
   } = activeRestaurant;
   return (
     <section className="activeRestaurant">
-      {Object.keys(activeRestaurant).length !== 0 ? (
+      {Object.keys(activeRestaurant).length === 0 ? (
+          <h1 className="selectRestaurant">Select a restaurant</h1>
+        ) : (
         <Fragment>
           <div className="featuredImage">
             <img src={image} alt={name} />
@@ -54,15 +55,13 @@ const ActiveRestaurant = ({ activeRestaurant }) => {
             )}
           </div>
         </Fragment>
-      ) : (
-        <h1>Select a restaurant</h1>
       )}
     </section>
   );
 };
 
 ActiveRestaurant.propTypes = {
-  activeRestaurant: PropTypes.shape({}).isRequired,
+  ...restaurantProviderProps,
 };
 
 export default withRestaurants(ActiveRestaurant);

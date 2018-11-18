@@ -241,6 +241,12 @@ main {
   margin: 0 0 5px;
 }
 
+.activeRestaurant .selectRestaurant {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
 .activeRestaurant h3 {
   margin: 0 0 20px;
   color: #828789;
@@ -336,4 +342,38 @@ main {
   height: 100%;
   overflow: hidden;
   overflow-y: scroll;
+  text-align: left;
+}
+
+.restaurantList ul {
+  padding: 0;
+  margin:0;
+}
+
+.restaurantList .listSubhead,
+.restaurantList li {
+  display: block;
+  width: 100%;
+  padding: 10px 30px;
+  font-size: 10px;
+}
+
+.restaurantList .listSubhead {
+  margin: 10px 0 0;
+}
+
+.restaurantList li {
+  border-top: 1px solid #cccecf;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restaurantList li:last-child {
+  border-bottom: 1px solid #cccecf;
+}
+
+.restaurantList li:hover,
+.restaurantList li.active {
+  background: #00c1c0;
+  color: #ffffff;
 }

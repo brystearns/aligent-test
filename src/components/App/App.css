@@ -1,0 +1,339 @@
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f1f1f1;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background: #ffffff;
+  padding: 30px;
+}
+
+.filters {
+  flex-basis: 65%;
+  display: flex;
+  flex-direction: row;
+}
+
+.listSubhead {
+  color: #545b5d;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin: 0 0 8px;
+  text-align: left;
+  display: block;
+}
+
+.listWrap {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: left;
+  width: 100%;
+}
+
+.listItem {
+  color: #828789;
+  width: 100%;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 15px;
+  font-size: 10px;
+  line-height: 12px;
+  cursor: pointer;
+}
+
+.listItem:before {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #e5e5e5;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.listItem.active {
+  font-weight: bold;
+}
+
+.listItem.active:before {
+  background: #b1b6b7;
+}
+
+.listItem.seeMore {
+  padding-left: 0;
+}
+
+.listItem.seeMore:before {
+  display: none;
+}
+
+.fullListOverlay {
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.overlayListWrap {
+  background: #ffffff;
+  width: 95%;
+  max-width: 400px;
+  padding: 30px;
+  position: relative;
+  z-index: 2;
+  max-height: 80%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.overlayListWrap .listItem {
+  flex-basis: 33.333%;
+}
+
+.categoriesList {
+  flex-basis: 20%;
+}
+
+.cuisinesList {
+  flex-basis: 80%;
+}
+
+.cuisinesList .listWrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cuisinesList .listItem {
+  width: 25%;
+}
+
+.sliders {
+  flex-basis: 35%;
+  padding-left: 20px;
+}
+
+.rangeDifference {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.slider:first-child {
+  margin-bottom: 5px;
+}
+
+.slider .listSubhead {
+  margin-bottom: 3px;
+}
+
+.rc-slider {
+  height: 18px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.rc-slider .rc-slider-handle {
+  margin-top: -3px;
+  border: 1px solid #00c1c0;
+  background: #f1f1f1;
+  box-shadow: none;
+}
+
+.rc-slider .rc-slider-rail {
+  height: 8px;
+  background: #f1f1f1;
+}
+
+.rc-slider .rc-slider-step {
+  height: 8px;
+}
+
+.rc-slider .rc-slider-track {
+  height: 8px;
+  background: #00c1c0;
+}
+
+main {
+  height: calc(100% - 161px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.activeRestaurant {
+  flex-basis: 70%;
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  text-align: left;
+}
+
+.featuredImage {
+  flex-basis: 50%;
+  padding-right: 20px;
+}
+
+.featuredImage img {
+  width: 100%;
+  height: auto;
+}
+
+.activeRestaurant h1 {
+  color: #373737;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 5px;
+}
+
+.activeRestaurant h3 {
+  margin: 0 0 20px;
+  color: #828789;
+  width: 100%;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.hasItem,
+.noItem {
+  font-size: 12px;
+  line-height: 25px;
+  color: #6b7173;
+  padding-left: 30px;
+  position: relative;
+  margin: 0;
+}
+
+.hasItem:before,
+.hasItem:after {
+  content: '';
+  display: block;
+  background: #00c547;
+  position: absolute;
+  width: 2px;
+}
+
+.hasItem:before {
+  height: 18px;
+  left: 17px;
+  top: 4px;
+  transform: rotate(45deg);
+}
+
+.hasItem:after {
+  height: 8px;
+  left: 8px;
+  top: 12px;
+  transform: rotate(-45deg);
+}
+
+.noItem:before,
+.noItem:after {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 22px;
+  background: #cd474c;
+  position: absolute;
+  left: 11px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: rotate(45deg);
+}
+
+.noItem:after {
+  transform: rotate(-45deg);
+}
+
+.activeSubhead {
+  margin: 20px 0 0;
+  color: #373737;
+}
+
+.activeRestaurant h4 {
+  color: #5a6062;
+  font-size: 16px;
+  margin: 3px 0 0;
+  font-weight: 500;
+}
+
+.activeRestaurant h4.isOpen,
+.activeRestaurant h4.notOpen {
+  display: inline-block;
+  padding: 3px 6px 4px;
+  border-radius: 4px;
+  background: #00c547;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 700;
+}
+
+.activeRestaurant h4.notOpen {
+  background: #cd474c;
+}
+
+.restaurantList {
+  background: #e5e5e5;
+  flex-basis: 30%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}

@@ -15,8 +15,8 @@ const ActiveRestaurant = ({ activeRestaurant }) => {
   return (
     <section className="activeRestaurant">
       {Object.keys(activeRestaurant).length === 0 ? (
-          <h1 className="selectRestaurant">Select a restaurant</h1>
-        ) : (
+        <h1 className="selectRestaurant">Select a restaurant</h1>
+      ) : (
         <Fragment>
           <div className="featuredImage">
             <img src={image} alt={name} />
@@ -28,7 +28,7 @@ const ActiveRestaurant = ({ activeRestaurant }) => {
             {hasBooking ? (
               <p className="hasItem">Bookings available</p>
             ) : (
-              <p className="hasItem">No bookings</p>
+              <p className="noItem">No bookings</p>
             )}
 
             {hasDelivery ? (
